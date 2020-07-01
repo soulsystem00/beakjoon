@@ -9,7 +9,7 @@
 브루트 포스 뜻을 검색하기 전에는 전체를 탐색하기위한<br>
 효율적인 알고리즘중 하나를 뜻하는 줄 알았다.<br><br>
 
-그래서 검색하기전에 일단 생각나는대로 만들어 보자고 한게 [`commit`]https://github.com/soulsystem00/beakjoon/commit/05ad34816832a107402ea5e5d57c57f2729902b7 이다.<br>
+그래서 검색하기전에 일단 생각나는대로 만들어 보자고 한게 [`commit`](https://github.com/soulsystem00/beakjoon/commit/05ad34816832a107402ea5e5d57c57f2729902b7) 이다.<br>
 
 그냥 for문을 이용하여 3개의 값을 가져와 저장하도록 만들어주었다.
 

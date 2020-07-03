@@ -105,3 +105,35 @@ typedef struct _Person
 이 경우에는 동적할당을 쓰지 않고 정적배열을 만들어 비교를 해주었다.<br>
 이런경우는 입력의 범위가 정해져 있었기 때문에 가능한거 같았다.<br>
 
+## 1018번 체스판 다시 칠하기
+
+문제가 복잡해 보이는데<br>
+간단히 요약하자면 N * M 의 배열을 입력받으면<br>
+그 중에서 8 * 8 의 체스판을 만들고, 해당 체스판이 W 와 B 가 반복되도록 수정을 하면 된다.<br>
+이때 가장 적은 수정 횟수를 출력해주면 된다.<br><br>
+
+문제를 이해하기 전까지는 N * M 의 배열을 입력을 받고<br>
+거기서 8 * 8 로 줄였을때 체스판 수정 횟수를 구하는 문제인줄 알았다.<br><br>
+
+그런데 2번째 예시를 봤을때 이해한 방법으로 도출 될 수 없는 값이 나와서 <br>
+상당히 당황스러웠다.<br>
+>10 13<br>BBBBBBBBWBWBW<br>BBBBBBBBBWBWB<br>BBBBBBBBWBWBW<br>BBBBBBBBBWBWB<br>BBBBBBBBWBWBW<br>BBBBBBBBBWBWB<br>BBBBBBBBWBWBW<br>BBBBBBBBBWBWB<br>WWWWWWWWWWBWB<br>WWWWWWWWWWBWB<br>
+
+위의 예시를 8 * 8 의 배열로 바꿨을 때 아래와 같이 나왔다.<br>
+>BBBBBBBB<br>BBBBBBBB<br>BBBBBBBB<br>BBBBBBBB<br>BBBBBBBB<br>BBBBBBBB<br>BBBBBBBB<br>BBBBBBBB<br>
+
+이걸 W와 B가 반복되게끔 바꾸면 당연히 12라는 값이 나오질 않는다.<br>
+그래서 문제를 다시 읽고 새로운 방법으로 이해를 하려 하니 비로소 문제가 원하는 방법이 무었인지 할 수 있게 되었다.<br><br>
+
+일단 먼저 입력 받은 배열의 높이, 너비에 따라 2차원 배열을 동적 할당 할 수 있게 만들어 주었다.<br>
+~~~C++
+int width, height;
+char** arr = new char* [height];
+for (int i = 0; i < height; i++)
+{
+	arr[i] = new char[width];
+}
+~~~
+
+그리고나서 시작점을 바꾸어 가면서 시작점으로 부터 만들수 있는 8 * 8 배열을 탐색해보면서<br>
+가장 적은 수정 횟수를 구할 수 있게끔 만들어 주었다.<br>
